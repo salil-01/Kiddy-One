@@ -27,15 +27,15 @@ function TopNavBar() {
         alignItems={"center"}
       >
         <Box width={"35%"}>
-          <Flex alignItems={"center"} gap={"10"}>
+          <Flex alignItems={"center"} gap={"0"}>
             <Link href="/">
-              <Image src="kiddy-one-logo.png" boxSize={"60px"}></Image>
+              <Image src="kiddy-one-logo.png" boxSize={"60px"} width={"68px"}></Image>
             </Link>
             <Spacer />
             <Input
               type={"text"}
               height={"30px"}
-              width="60%"
+              width="70%"
               placeholder="Searc for Category Brand or Product"
               _placeholder={{ opacity: 1, color: "gray.500" }}
             ></Input>
@@ -51,10 +51,10 @@ function TopNavBar() {
             width={"100%"}
             fontSize={"0.8rem"}
           >
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Flex
                 width={"100%"}
-                gap={4}
+                gap={1}
                 alignItems={"center"}
                 justifyContent={"space-between"}
               >
@@ -63,35 +63,35 @@ function TopNavBar() {
               </Flex>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href={"#"} textDecoration="none" color={"black"}>
+            <Link href={"#"} textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Parenting</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>More</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Login/Register</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
 
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Track Order</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Support</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Stores</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" color={"black"}>
+            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Flex
                 width={"100%"}
-                gap={10}
+                gap={2}
                 alignItems={"center"}
                 justifyContent={"space-between"}
               >

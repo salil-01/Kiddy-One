@@ -1,4 +1,6 @@
-import Carousel from "../components/carousel/Carousel";
+import Carousel from "../components/homecomp/Carousel";
+import Footer from "../components/homecomp/Footer";
+import MidBody from "../components/homecomp/MidBody";
 import Navbar from "../components/Navbar/Navbar";
 
 const HomePage = ()=>{
@@ -6,6 +8,8 @@ const HomePage = ()=>{
         <>
          <Navbar />
         <Carousel/>
+        <MidBody/>
+        <Footer/>
         </>
     )
 }
