@@ -21,6 +21,9 @@ const DesktopNav = () => {
       justifyContent={"space-around"}
       marginBottom={"-20px"}
       height={"100%"}
+      // position="absolute"
+      zIndex={100}
+      
     >
       {navSubMenuData.map((navItem) => (
         <Box
@@ -49,13 +52,17 @@ const DesktopNav = () => {
             </PopoverTrigger>
 
             {navItem.children && (
-              <PopoverContent p={4} width={"70vw"} backgroundColor={"#EEEEEE"}>
+              <PopoverContent p={4} width={"70vw"} backgroundColor={"#EEEEEE"}
+             
+              
+              
+              >
                 <Grid
                   templateColumns={"repeat(5,1fr)"}
                   autoRows={"40px"}
                   textTransform={"uppercase"}
                   width={"100%"}
-                  zIndex="1"
+                 
                 >
                   {navItem.children.map((child, index) => (
                     <DeskNavItem key={index} {...child} />
