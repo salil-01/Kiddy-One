@@ -1,16 +1,5 @@
 import React from "react";
-// import {Stack,Flex,Image,HStack,Link,Divider,VStack,Text,Icon } from '@chakra-ui/react'
-import {
-  Box,
-  Button,
-  Grid,
-  GridItem,
-  Image,
-  Img,
-  Stack,
-  Text,
-  Icon,
-} from "@chakra-ui/react";
+import { Box, Grid, GridItem, Image, Stack, Text } from "@chakra-ui/react";
 
 // import { Box } from "@chakra-ui/react"
 //  import {TbBrandReddit} from "react-icons/tb"
@@ -45,7 +34,7 @@ function Footer() {
       >
         <Box
           width={{ base: "100%", sm: "100%", md: "50%", lg: "30%" }}
-        //   border="1px solid"
+          //   border="1px solid"
         >
           <Box>
             <Image
