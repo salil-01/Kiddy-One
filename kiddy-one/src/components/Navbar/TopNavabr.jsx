@@ -87,7 +87,7 @@ function TopNavBar() {
             <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Text>Stores</Text>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical"  />
             <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
               <Flex
                 width={"100%"}
