@@ -220,13 +220,13 @@ export default function SignIn() {
                 )}
               </Stack>
               <Stack pt={6}>
-                <Text align={"center"} fontSize="14px" fontStyle={"italic"}>
+                <Text align={"center"}>
                   New to Kiddy-Shop?{" "}
                   <Link to="/signup">
                     <Text
                       textDecoration={"underline"}
-                      color={"rgb(255,112,67)"}
-                      fontWeight={"bold"}
+                    
+                      fontWeight={"700"}
                     >
                       Register Here
                     </Text>

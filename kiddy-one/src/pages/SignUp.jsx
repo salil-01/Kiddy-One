@@ -185,21 +185,16 @@ export default function Signup() {
             Register
           </Text>
 
-          <Box rounded={"lg"} boxShadow={"2xl"}>
+          <Box rounded={"lg"} padding={"10px"} boxShadow={"2xl"}>
             <Stack
               spacing={0}
-              width={{ sm: "200px", md: "300px", lg: "400px" }}
-              padding={"10px"}
+              width={{ sm: "350px", md: "300px", lg: "400px" }}
+              padding={"20px"}
               height={["75vh", "75vh", "70vh"]}
               marginTop={"25px"}
             >
               <HStack margin={"0px 0 30px"}>
-                <Box
-                 
-                  width="100%"
-                  padding={1}
-                 
-                >
+                <Box width="100%" padding={1}>
                   <FormControl isRequired>
                     <FormLabel margin={"-1"}>Full Name</FormLabel>
                     <Input
@@ -324,7 +319,6 @@ export default function Signup() {
                   <Button
                     onClick={handleSubmit}
                     size="lg"
-                    
                     color={"rgb(255,112,67)"}
                     borderRadius="5px"
                     _hover={{
