@@ -107,7 +107,7 @@ function TopNavBar() {
               <Popover trigger={"hover"} placement={"bottom-start"}>
                 <PopoverTrigger>
                   {isAuth ? (
-                    <Text fontWeight={"bold"}>Hello User</Text>
+                    <Text fontWeight={"bold"}>Salil</Text>
                   ) : (
                     <Text>Login/Register</Text>
                   )}
