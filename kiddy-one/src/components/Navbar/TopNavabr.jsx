@@ -10,13 +10,20 @@ import {
   Icon,
   Divider,
   Link,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+  Stack,
+  Button,
 } from "@chakra-ui/react";
+import { useContext } from "react";
 // import { Link } from "react-router-dom";
 import { BsSearch, BsCart2 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
+import { AuthContext } from "../../context/AuthContext";
 function TopNavBar() {
   //   let searchRef = useRef();
-
+  const { isAuth, logout } = useContext(AuthContext);
   return (
     <>
       <Flex
@@ -29,7 +36,11 @@ function TopNavBar() {
         <Box width={"35%"}>
           <Flex alignItems={"center"} gap={"0"}>
             <Link href="/">
-              <Image src="kiddy-one-logo.png" boxSize={"60px"} width={"68px"}></Image>
+              <Image
+                src="kiddy-one-logo.png"
+                boxSize={"60px"}
+                width={"68px"}
+              ></Image>
             </Link>
             <Spacer />
             <Input
@@ -51,7 +62,12 @@ function TopNavBar() {
             width={"100%"}
             fontSize={"0.8rem"}
           >
-            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Flex
                 width={"100%"}
                 gap={1}
@@ -63,32 +79,107 @@ function TopNavBar() {
               </Flex>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href={"#"} textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href={"#"}
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Text>Parenting</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Text>More</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
-              <Text>Login/Register</Text>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
+              {" "}
+              <Popover trigger={"hover"} placement={"bottom-start"}>
+                <PopoverTrigger>
+                  {isAuth ? (
+                    <Text fontWeight={"bold"}>Hello User</Text>
+                  ) : (
+                    <Text>Login/Register</Text>
+                  )}
+                </PopoverTrigger>
+                <PopoverContent>
+                  <Stack
+                    height={"100px"}
+                    spacing={2}
+                    width={"100%"}
+                    padding={"20px"}
+                  >
+                    {isAuth ? (
+                      <Button
+                        color={"rgb(255,112,67)"}
+                        width={"50%"}
+                        margin={"auto"}
+                        padding="5px"
+                        onClick={logout}
+                        _hover={{
+                          bg: "rgb(255,112,67)",
+                          color: "white",
+                        }}
+                      >
+                        Logout
+                      </Button>
+                    ) : (
+                      <Link href="/login" fontSize={"1rem"}>
+                        Login
+                      </Link>
+                    )}
+                    <Link href="/signup" fontSize={"1rem"}>
+                      Register
+                    </Link>
+                  </Stack>
+                </PopoverContent>
+              </Popover>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
 
-            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Text>Track Order</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none"  _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Text>Support</Text>
             </Link>
             <Divider orientation="vertical" border={"1px solid gray.200"} />
-            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Text>Stores</Text>
             </Link>
-            <Divider orientation="vertical"  />
-            <Link href="#" textDecoration="none" _hover={{"textDecoration":"underline"}} color={"black"}>
+            <Divider orientation="vertical" />
+            <Link
+              href="#"
+              textDecoration="none"
+              _hover={{ textDecoration: "underline" }}
+              color={"black"}
+            >
               <Flex
                 width={"100%"}
                 gap={2}
