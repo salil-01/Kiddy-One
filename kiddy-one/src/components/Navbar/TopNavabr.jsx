@@ -15,12 +15,16 @@ import {
   PopoverTrigger,
   Stack,
   Button,
+  VStack,
 } from "@chakra-ui/react";
 import { useContext } from "react";
 // import { Link } from "react-router-dom";
+
 import { BsSearch, BsCart2 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { AuthContext } from "../../context/AuthContext";
+const cartData = JSON.parse(localStorage.getItem("cartdata")) || [];
+console.log("cart", cartData);
 function TopNavBar() {
   //   let searchRef = useRef();
   const { isAuth, logout } = useContext(AuthContext);
@@ -78,7 +82,7 @@ function TopNavBar() {
                 <Icon as={GoLocation} boxSize={"20px"} />
               </Flex>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
               href={"#"}
               textDecoration="none"
@@ -87,7 +91,7 @@ function TopNavBar() {
             >
               <Text>Parenting</Text>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
               href="#"
               textDecoration="none"
@@ -96,7 +100,7 @@ function TopNavBar() {
             >
               <Text>More</Text>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
               href="#"
               textDecoration="none"
@@ -145,7 +149,7 @@ function TopNavBar() {
                 </PopoverContent>
               </Popover>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
 
             <Link
               href="#"
@@ -155,7 +159,7 @@ function TopNavBar() {
             >
               <Text>Track Order</Text>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
               href="#"
               textDecoration="none"
@@ -164,7 +168,7 @@ function TopNavBar() {
             >
               <Text>Support</Text>
             </Link>
-            <Divider orientation="vertical" border={"1px solid gray.200"} />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
               href="#"
               textDecoration="none"
@@ -173,9 +177,9 @@ function TopNavBar() {
             >
               <Text>Stores</Text>
             </Link>
-            <Divider orientation="vertical" />
+            <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              href="/cart"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -185,9 +189,22 @@ function TopNavBar() {
                 gap={2}
                 alignItems={"center"}
                 justifyContent={"space-between"}
+                // border={"1px solid"}
               >
                 <Text>Cart</Text>
+
                 <Icon as={BsCart2} boxSize={"25px"} />
+                <Text
+                  as={"span"}
+                  margin={"-28px 0px 0px -20px"}
+                  backgroundColor={"orange"}
+                  color={"black"}
+                  borderRadius={"10px"}
+                  fontSize={"1.1rem"}
+                  width={"30px"}
+                >
+                  {cartData.length === null ? "0" : cartData.length}
+                </Text>
               </Flex>
             </Link>
           </Flex>
