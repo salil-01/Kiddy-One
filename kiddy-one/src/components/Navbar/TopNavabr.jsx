@@ -23,8 +23,8 @@ import { useContext } from "react";
 import { BsSearch, BsCart2 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { AuthContext } from "../../context/AuthContext";
-const cartData = JSON.parse(localStorage.getItem("cartdata"));
-console.log("cart",cartData);
+const cartData = JSON.parse(localStorage.getItem("cartdata")) || [];
+console.log("cart", cartData);
 function TopNavBar() {
   //   let searchRef = useRef();
   const { isAuth, logout } = useContext(AuthContext);
@@ -179,7 +179,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              href="/cart"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -192,10 +192,19 @@ function TopNavBar() {
                 // border={"1px solid"}
               >
                 <Text>Cart</Text>
-                
-                
+
                 <Icon as={BsCart2} boxSize={"25px"} />
-                <Text as={"span"} margin={"-28px 0px 0px -20px"} backgroundColor={"orange"} color={"black"} borderRadius={"10px"} fontSize={"1.1rem"} width={"30px"} >{cartData.length?(cartData.length):"0"}</Text>
+                <Text
+                  as={"span"}
+                  margin={"-28px 0px 0px -20px"}
+                  backgroundColor={"orange"}
+                  color={"black"}
+                  borderRadius={"10px"}
+                  fontSize={"1.1rem"}
+                  width={"30px"}
+                >
+                  {cartData.length === null ? "0" : cartData.length}
+                </Text>
               </Flex>
             </Link>
           </Flex>

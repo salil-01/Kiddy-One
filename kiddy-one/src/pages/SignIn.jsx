@@ -122,7 +122,8 @@ export default function SignIn() {
         minH={"100vh"}
         align={"center"}
         justify={"center"}
-        bg={useColorModeValue("white")}
+        bg={"rgb(239,238,241)"}
+        // border={"1px solid"}
       >
         <Stack
           spacing={8}
@@ -131,6 +132,8 @@ export default function SignIn() {
           py={12}
           px={6}
           boxShadow={"2xl"}
+          bg={"white"}
+          borderRadius={"8px"}
         >
           <Image
             cursor={"pointer"}
@@ -226,11 +229,7 @@ export default function SignIn() {
                 <Text align={"center"}>
                   New to Kiddy-Shop?{" "}
                   <Link to="/signup">
-                    <Text
-                      textDecoration={"underline"}
-                    
-                      fontWeight={"700"}
-                    >
+                    <Text textDecoration={"underline"} fontWeight={"700"}>
                       Register Here
                     </Text>
                   </Link>

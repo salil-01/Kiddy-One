@@ -175,7 +175,7 @@ export default function Signup() {
   };
   return (
     <>
-      <Flex>
+      <Flex border={"1px solid"} bg={"rgb(239,238,241)"} height={"100vh"}>
         <VStack margin={"auto"}>
           <Image
             cursor={"pointer"}
@@ -188,7 +188,7 @@ export default function Signup() {
             Register
           </Text>
 
-          <Box rounded={"lg"} padding={"10px"} boxShadow={"2xl"}>
+          <Box rounded={"lg"} padding={"10px"} boxShadow={"2xl"} bg={"white"}>
             <Stack
               spacing={0}
               width={{ sm: "350px", md: "300px", lg: "400px" }}
@@ -295,7 +295,7 @@ export default function Signup() {
                 </FormHelperText>
                 <FormHelperText
                   fontSize={"0.8rem"}
-                  margin={"0"}
+                  margin={"0px 0px 10px 0px"}
                   textAlign={"left"}
                 >
                   Uppercase, 1 Lowercase & 1 Numeric character.
@@ -313,8 +313,8 @@ export default function Signup() {
                     _hover={{
                       bg: "rgb(255,112,67)",
                     }}
-                    width={"50%"}
                     margin={"auto"}
+                    width={"100%"}
                   >
                     Sign up
                   </Button>
@@ -328,7 +328,7 @@ export default function Signup() {
                       bg: "rgb(255,112,67)",
                       color: "white",
                     }}
-                    width={"50%"}
+                    width={"100%"}
                     margin={"auto"}
                   >
                     Sign up

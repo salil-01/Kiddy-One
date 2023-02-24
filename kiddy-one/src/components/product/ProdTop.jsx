@@ -227,7 +227,7 @@ const ProdTop = () => {
         >
           {/* <ProductList /> */}
           {loading ? (
-            <Spinner />
+            <Spinner size={"xl"} margin={"10% auto"} />
           ) : (
             <>
               <SimpleGrid
