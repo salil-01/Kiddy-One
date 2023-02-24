@@ -267,8 +267,8 @@ export const Address = () => {
         formData.area.length === 0 ||
         formData.landmark.length === 0 ||
         formData.location.length === 0 ? (
-          <Box fontSize={12} color={"red"}>
-            Fill All the Crediantial correctly
+          <Box fontSize={"0.7rem"} color={"red"} textAlign={"left"}>
+            *Fill All the Crediantial correctly
           </Box>
         ) : null}
       </FormControl>

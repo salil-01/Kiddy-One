@@ -137,7 +137,7 @@ const CardDetail = () => {
                           <Box display="flex" mt={8}>
                             <Box>
                               <Input
-                                type="number"
+                                type="tel"
                                 name="mobile"
                                 maxLength="2"
                                 placeholder="Month"
@@ -148,7 +148,7 @@ const CardDetail = () => {
                             </Box>
                             <Box pl={4}>
                               <Input
-                                type="number"
+                                type="tel"
                                 name="alternumber"
                                 placeholder="Year"
                                 maxLength="4"
@@ -159,9 +159,9 @@ const CardDetail = () => {
                             </Box>
                             <Box pl={4}  display="flex">
                               <Input
-                                type="number"
+                                type="tel"
                                 name="alternumber"
-                                placeholder="cvv"
+                                placeholder="CVV"
                                 maxLength="3"
                                 variant="flushed"
                                 value ={cvv}
@@ -173,8 +173,8 @@ const CardDetail = () => {
             />
                             </Box>
                           </Box>
-                          <Box>
-                            <Button onClick={handleSubmit}>Save Details </Button>
+                          <Box margin={"auto"}>
+                            <Button  onClick={handleSubmit} border={"1px solid orange"}>Place Order</Button>
                           </Box>
                         </Stack>
                       </Box>

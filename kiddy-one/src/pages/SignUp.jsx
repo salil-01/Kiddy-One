@@ -19,6 +19,7 @@ import {
 import { useReducer, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+import TopNavbar from "../components/Navbar/TopNavabr";
 //   import logo from "../assest/Kids fashion logo.png";
 const initialState = {
   name: "",
@@ -175,11 +176,13 @@ export default function Signup() {
   };
   return (
     <>
-      <Flex border={"1px solid"} bg={"rgb(239,238,241)"} height={"100vh"}>
-        <VStack margin={"auto"}>
+      <TopNavbar />
+      <Flex bg={"rgb(239,238,241)"} height={"100vh"}>
+        <VStack margin={"20px auto"}>
           <Image
             cursor={"pointer"}
             src="kiddy-one-logo.png"
+            borderRadius={"50px"}
             margin="auto"
             boxSize={"20%"}
             onClick={() => navigate("/")}
