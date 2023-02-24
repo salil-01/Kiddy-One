@@ -139,6 +139,7 @@ export default function Signup() {
         // console.log(response);
         setisLoading(false);
         toast({
+          position: "top",
           title: `Successfully registered`,
           status: "success",
           isClosable: true,
@@ -147,6 +148,7 @@ export default function Signup() {
       } else {
         setisLoading(false);
         toast({
+          position: "top",
           title: `Email already exists`,
           status: "error",
           isClosable: true,
@@ -155,6 +157,7 @@ export default function Signup() {
     } else {
       setisLoading(false);
       toast({
+        position: "top",
         title: `Please enter valid credentials`,
         status: "error",
         isClosable: true,

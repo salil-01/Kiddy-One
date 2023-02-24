@@ -77,6 +77,7 @@ export default function SignIn() {
           login();
           dispatch({ type: "reset" });
           toast({
+            position: "top",
             title: `Login successfull`,
             status: "success",
             isClosable: true,
@@ -84,6 +85,7 @@ export default function SignIn() {
           navigate("/");
         } else {
           toast({
+            position: "top",
             title: `Wrong Credentials`,
             status: "error",
             isClosable: true,
@@ -93,6 +95,7 @@ export default function SignIn() {
       .catch((error) => {
         console.log(error);
         toast({
+          position: "top",
           title: `Wrong Credentials`,
           status: "error",
           isClosable: true,
