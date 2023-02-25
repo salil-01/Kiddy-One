@@ -4,6 +4,7 @@ import Sidebar from "../components/adminpanel/Sidebar";
 import TopNavBar from "../components/Navbar/TopNavabr";
 import { Box, Flex } from "@chakra-ui/react";
 import AllUsers from "../components/adminpanel/AllUsers";
+import AddProduct from "../components/adminpanel/AddProduct";
 
 const AdminPage = () => {
   const [showPage, setShowPage] = useState("dashboard");
@@ -28,7 +29,7 @@ const AdminPage = () => {
           {/* {showPage == "dashboard" ? <Deshboard /> : null} */}
           {showPage == "showprods" ? <AllProducts /> : null}
           {showPage == "showusers" ? <AllUsers /> : null}
-          {/* {showPage == "addprod" ? <AdminProduct /> : null} */}
+          {showPage == "addproduct" ? <AddProduct /> : null}
           {/* {showPage == "editprod" ? <Delivery /> : null} */}
           {/* {showPage == "deleteprod" ? <Delete/> : null} */}
         </Box>

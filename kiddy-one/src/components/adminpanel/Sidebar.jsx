@@ -83,6 +83,28 @@ const Sidebar = ({ setShowPage }) => {
           </h2>
         </AccordionItem>
       </Accordion>
+      <Accordion allowMultiple>
+        <AccordionItem>
+          <h2>
+            <AccordionButton>
+              <Button
+                pr={1}
+                mt={5}
+                w="full"
+                variant="ghost"
+                colorScheme="blue"
+                _hover={{ bg: "RGBA(0, 0, 0, 0.24)" }}
+                onClick={() => setShowPage("addproduct")}
+              >
+                {" "}
+                Add Products
+              </Button>
+
+              <AccordionIcon mt={5} />
+            </AccordionButton>
+          </h2>
+        </AccordionItem>
+      </Accordion>
     </Box>
   );
 };
