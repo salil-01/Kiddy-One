@@ -51,7 +51,7 @@ const DesktopNav = () => {
 
             {navItem.children && (
               <PopoverContent width={"60vw"} backgroundColor={"white"}
-              boxShadow="dark-lg"
+              boxShadow="md"
               >
                 <Grid
                 p={"15px"}

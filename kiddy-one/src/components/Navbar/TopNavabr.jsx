@@ -193,7 +193,7 @@ const DesktopNav = () => {
                 </PopoverTrigger>
                 <PopoverContent>
                   <Stack
-                    height={"100px"}
+                    height={"130px"}
                     spacing={2}
                     width={"100%"}
                     padding={"20px"}
@@ -219,6 +219,9 @@ const DesktopNav = () => {
                     )}
                     <Link href="/signup" fontSize={"1rem"}>
                       Register
+                    </Link>
+                    <Link href="/admin" fontSize={"1rem"}>
+                      Admin Panel
                     </Link>
                   </Stack>
                 </PopoverContent>
@@ -381,6 +384,10 @@ const NAV_ITEMS = [
       {
         label: "Register",
         href: "/signup",
+      },
+      {
+        label: "Admin Panel",
+        href: "/admin",
       },
     ],
   },
