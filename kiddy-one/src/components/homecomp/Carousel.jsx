@@ -12,7 +12,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Navigation } from "swiper";
-import { Image,Center } from "@chakra-ui/react";
+import { Image, Center } from "@chakra-ui/react";
 
 const imagedatalink = [
   "https://cdn.fcglcdn.com/brainbees/banners/hp_mktg_p01_flash_sale_flat60_desktop1674107461072.gif",
@@ -24,9 +24,8 @@ const imagedatalink = [
   "https://cdn.fcglcdn.com/brainbees/banners/unique_baby_names_desktop1674121815733.webp",
   "https://cdn.fcglcdn.com/brainbees/banners/mktng_hp_8mlb_20thjan1674146296378.webp",
   "https://cdn.fcglcdn.com/brainbees/banners/hp_190120231674104354326.webp",
- "https://cdn.fcglcdn.com/brainbees/banners/hp-banner_994x3991676022239483.webp"
-
-]
+  "https://cdn.fcglcdn.com/brainbees/banners/hp-banner_994x3991676022239483.webp",
+];
 
 export default function Slider() {
   // console.log(Swiper)
@@ -42,18 +41,21 @@ export default function Slider() {
         navigation={true}
         modules={[Autoplay, Navigation]}
         className="mySwiper"
-       style={{margin:"20px auto"}}
-        
+        style={{ margin: "20px auto" }}
       >
-          {
-            imagedatalink.map((data,index)=>{
-              return <SwiperSlide key={index+1}>
-                       <Center>
-                       <Image sx={{cursor:"pointer",width:"80vw", height:"60vh"}} src={data} alt={`image${index}`}/>
-                       </Center>
-                      </SwiperSlide>
-            })
-          }
+        {imagedatalink.map((data, index) => {
+          return (
+            <SwiperSlide key={index + 1}>
+              <Center>
+                <Image
+                  sx={{ cursor: "pointer", width: "80vw", height: "60vh" }}
+                  src={data}
+                  alt={`image${index}`}
+                />
+              </Center>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

@@ -119,13 +119,13 @@ export default function SignIn() {
   };
   return (
     <>
-    <TopNavBar/>
+      <TopNavBar />
       <Flex
         // height={"80vh"}
         align={"center"}
         justify={"center"}
         bg={"rgb(239,238,241)"}
-        
+
         // border={"1px solid"}
       >
         <Stack

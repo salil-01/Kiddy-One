@@ -10,7 +10,6 @@ import {
 } from "@chakra-ui/react";
 
 const Sidebar = ({ setShowPage }) => {
-
   return (
     <Box mt={5} pt={3} pl={2} width="100%" height="100%">
       <Text fontSize={15} as="b">
@@ -25,9 +24,10 @@ const Sidebar = ({ setShowPage }) => {
                 pr={1}
                 mt={5}
                 w="full"
-                variant="ghost"
+                variant="outline"
+                border={"1px solid blue"}
                 color="blue"
-                _hover={{ bg: "RGBA(0, 0, 0, 0.24)" }}
+                _hover={{ bg: "blue", color: "white" }}
                 onClick={() => setShowPage("dashboard")}
               >
                 DashBoard
@@ -47,9 +47,10 @@ const Sidebar = ({ setShowPage }) => {
                 pr={1}
                 mt={5}
                 w="full"
-                variant="ghost"
-                colorScheme="blue"
-                _hover={{ bg: "RGBA(0, 0, 0, 0.24)" }}
+                variant="outline"
+                border={"1px solid blue"}
+                color="blue"
+                _hover={{ bg: "blue", color: "white" }}
                 onClick={() => setShowPage("showprods")}
               >
                 Products Management
@@ -69,9 +70,10 @@ const Sidebar = ({ setShowPage }) => {
                 pr={1}
                 mt={5}
                 w="full"
-                variant="ghost"
-                colorScheme="blue"
-                _hover={{ bg: "RGBA(0, 0, 0, 0.24)" }}
+                variant="outline"
+                border={"1px solid blue"}
+                color="blue"
+                _hover={{ bg: "blue", color: "white" }}
                 onClick={() => setShowPage("showusers")}
               >
                 {" "}
@@ -91,9 +93,10 @@ const Sidebar = ({ setShowPage }) => {
                 pr={1}
                 mt={5}
                 w="full"
-                variant="ghost"
-                colorScheme="blue"
-                _hover={{ bg: "RGBA(0, 0, 0, 0.24)" }}
+                variant="outline"
+                border={"1px solid blue"}
+                color="blue"
+                _hover={{ bg: "blue", color: "white" }}
                 onClick={() => setShowPage("addproduct")}
               >
                 {" "}

@@ -9,7 +9,6 @@ import {
   Select,
   useToast,
   Heading,
-  
 } from "@chakra-ui/react";
 // import { useState } from "react";
 import { useRef } from "react";
@@ -42,7 +41,7 @@ export const Address = () => {
   const [password, setPassword] = useState("");
   const [register2, setRegister2] = useState("");
   const [password2, setPassword2] = useState("");
-  
+
   const toast = useToast();
 
   const handleChange = (e) => {
@@ -59,9 +58,10 @@ export const Address = () => {
     });
   };
   return (
-    <><Heading as={"h3"} fontSize={"1.6rem"}>
+    <>
+      <Heading as={"h3"} fontSize={"1.6rem"}>
         Address
-    </Heading>
+      </Heading>
       <FormControl>
         <Box>
           <Tooltip

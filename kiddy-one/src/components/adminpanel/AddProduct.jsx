@@ -82,17 +82,19 @@ const AddProduct = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(state);
-    fetch(`https://firstcry-mockserver.onrender.com/products`,{
-        method: "POST",
-        body: JSON.stringify(state),
-        headers: {
-          "Content-type": "application/json",
-        },
-    }).then((data)=>{
-        console.log(data)
-    }).catch((error)=>{
-        console.log(error)
+    fetch(`https://firstcry-mockserver.onrender.com/products`, {
+      method: "POST",
+      body: JSON.stringify(state),
+      headers: {
+        "Content-type": "application/json",
+      },
     })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
   return (
     <>

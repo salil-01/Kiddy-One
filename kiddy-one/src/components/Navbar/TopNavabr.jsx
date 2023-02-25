@@ -34,6 +34,7 @@ import {
 import { BsSearch, BsCart2 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { AuthContext } from "../../context/AuthContext";
+import Signup from "../../pages/SignUp";
 const cartData = JSON.parse(localStorage.getItem("cartdata")) || [];
 console.log("cart", cartData);
 function TopNavBar() {
@@ -122,7 +123,8 @@ function TopNavBar() {
 export default TopNavBar;
 
 const DesktopNav = () => {
-  const { isAuth, logout } = useContext(AuthContext);
+  const { isAuth, logout, cartCount } = useContext(AuthContext);
+  console.log(cartCount);
   return (
     <>
       <Flex
@@ -217,9 +219,9 @@ const DesktopNav = () => {
                         Login
                       </Link>
                     )}
-                    <Link href="/signup" fontSize={"1rem"}>
-                      Register
-                    </Link>
+                    <Box>
+                      <Signup />
+                    </Box>
                     <Link href="/admin" fontSize={"1rem"}>
                       Admin Panel
                     </Link>
@@ -281,7 +283,7 @@ const DesktopNav = () => {
                   fontSize={"1.1rem"}
                   width={"30px"}
                 >
-                  {cartData.length === null ? "0" : cartData.length}
+                  {cartCount}
                 </Text>
               </Flex>
             </Link>

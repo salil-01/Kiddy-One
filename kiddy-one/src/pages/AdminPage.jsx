@@ -14,7 +14,7 @@ const AdminPage = () => {
 
       <Flex justifyContent={"space-between"} width={"100%"}>
         <Box
-        //   border={"1px solid"}
+          //   border={"1px solid"}
           width={["40%", "40%", "30%", "18%"]}
           h="100vh"
           position={"fixed"}
@@ -22,7 +22,7 @@ const AdminPage = () => {
           <Sidebar setShowPage={setShowPage} />
         </Box>
         <Box
-        //   border={"1px solid"}
+          //   border={"1px solid"}
           width={["55%", "55%", "60%", "75%"]}
           marginLeft={["50%", "45%", "20%"]}
         >
@@ -30,8 +30,6 @@ const AdminPage = () => {
           {showPage == "showprods" ? <AllProducts /> : null}
           {showPage == "showusers" ? <AllUsers /> : null}
           {showPage == "addproduct" ? <AddProduct /> : null}
-          {/* {showPage == "editprod" ? <Delivery /> : null} */}
-          {/* {showPage == "deleteprod" ? <Delete/> : null} */}
         </Box>
       </Flex>
     </>
