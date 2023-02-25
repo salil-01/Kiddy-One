@@ -6,7 +6,7 @@ import Checkout from "../pages/Checkout";
 import { HomePage } from "../pages/Homepage";
 import ProductPage from "../pages/ProductPage";
 import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const Allroutes = () => {
   return (
@@ -19,38 +19,27 @@ const Allroutes = () => {
         <Route
           path="/cart"
           element={
-            // <PrivateRoute>
-            <Cart />
-            //  </PrivateRoute>
+            <PrivateRoute>
+              <Cart />
+            </PrivateRoute>
           }
         />
         <Route
           path="/payment"
           element={
-            //  <PrivateRoute>
-            <Checkout />
-            //  </PrivateRoute>
-          }
-        />
-        {/* <Route path="/singleproduct/:id" element={<SingleProductPage />} />
-          <Route
-          path="/account"
-          element={
             <PrivateRoute>
-              <MyAccountPages />
+              <Checkout />
             </PrivateRoute>
           }
         />
-       
-        <Route path="/adminlogin" element={<Adminlogin />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/deshboard" element={<Deshboard />} />
-        <Route path="/usermanagement" element={<UserManagement />} />
-        <Route path="/ordermanagement" element={<OrderManagement />} />
-        <Route path="/otp" element={<Otp />} />
-        <Route />
-        <Route />  */}
-        <Route path="/admin" element={<AdminPage />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute>
+              <AdminPage />
+            </PrivateRoute>
+          }
+        />
       </Routes>
     </div>
   );
