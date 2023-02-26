@@ -5,6 +5,7 @@ import TopNavBar from "../components/Navbar/TopNavabr";
 import { Box, Flex } from "@chakra-ui/react";
 import AllUsers from "../components/adminpanel/AllUsers";
 import AddProduct from "../components/adminpanel/AddProduct";
+import Dashboard from "../components/adminpanel/DashBoard";
 
 const AdminPage = () => {
   const [showPage, setShowPage] = useState("dashboard");
@@ -26,7 +27,7 @@ const AdminPage = () => {
           width={["55%", "55%", "60%", "75%"]}
           marginLeft={["50%", "45%", "20%"]}
         >
-          {/* {showPage == "dashboard" ? <Deshboard /> : null} */}
+          {showPage == "dashboard" ? <Dashboard /> : null}
           {showPage == "showprods" ? <AllProducts /> : null}
           {showPage == "showusers" ? <AllUsers /> : null}
           {showPage == "addproduct" ? <AddProduct /> : null}

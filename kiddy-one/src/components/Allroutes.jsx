@@ -45,4 +45,4 @@ const Allroutes = () => {
   );
 };
 
-export { Allroutes };
+export default Allroutes;

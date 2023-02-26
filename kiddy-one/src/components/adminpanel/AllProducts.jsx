@@ -49,7 +49,7 @@ const reducer = (state, action) => {
 };
 const AllProducts = () => {
   const [data, dispatch] = useReducer(reducer, initialState);
-  // console.log(data)
+  console.log(data);
 
   function getData() {
     dispatch({ type: "loading" });
@@ -85,7 +85,7 @@ const AllProducts = () => {
           "repeat(3, 1fr)",
         ]}
       >
-        {data.loading ? (
+        {data.isLoading ? (
           <Spinner size={"xl"} marginLeft={"35vw"} marginTop={"20vh"} />
         ) : (
           data?.data?.map((el) => (
@@ -121,7 +121,7 @@ const AllProducts = () => {
                       alignItems="center"
                       _hover={{ bgColor: "red.400" }}
                       color={"whiteAlpha.900"}
-                      w="70px"
+                      w="80px"
                     >
                       Delete
                     </Button>

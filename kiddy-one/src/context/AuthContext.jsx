@@ -3,18 +3,20 @@ export const AuthContext = createContext();
 let cartData = JSON.parse(localStorage.getItem("cartdata"));
 
 function AuthContextProvider({ children }) {
-  const [isAuth, setIsAuth] = useState(false);
+  const [isAuth, setisAuth] = useState(false);
   const [cartCount, setCartCount] = useState(cartData.length);
-  const logout = () => {
-    setIsAuth(false);
-  };
   const login = () => {
-    setIsAuth(true);
+    setisAuth(true);
+    // console.log(isAuth);
   };
+  const logout = () => {
+    setisAuth(false);
+  };
+
   //   console.log(state);
   return (
     <AuthContext.Provider
-      value={{ isAuth, login, logout, cartCount, setCartCount }}
+      value={{ isAuth, setisAuth, login, logout, cartCount, setCartCount }}
     >
       {children}
     </AuthContext.Provider>

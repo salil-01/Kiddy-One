@@ -3,27 +3,22 @@ import {
   Flex,
   Image,
   Input,
-  HStack,
   Text,
-  Center,
   Spacer,
   Icon,
   Divider,
-  Link,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Stack,
   Button,
-  VStack,
   IconButton,
   Collapse,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
 } from "@chakra-ui/react";
 import { useContext } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
   HamburgerIcon,
   CloseIcon,
@@ -38,7 +33,7 @@ import Signup from "../../pages/SignUp";
 const cartData = JSON.parse(localStorage.getItem("cartdata")) || [];
 console.log("cart", cartData);
 function TopNavBar() {
-  //   let searchRef = useRef();
+  //   let searcto = useRef();
   const { isAuth, logout } = useContext(AuthContext);
   const { isOpen, onToggle } = useDisclosure();
   return (
@@ -85,7 +80,7 @@ function TopNavBar() {
               // border={"1px solid"}
             >
               <Flex alignItems={"center"} gap={{ base: "6", md: "1" }}>
-                <Link href="/">
+                <Link to="/">
                   <Image
                     src="kiddy-one-logo.png"
                     boxSize={"100%"}
@@ -124,7 +119,7 @@ export default TopNavBar;
 
 const DesktopNav = () => {
   const { isAuth, logout, cartCount } = useContext(AuthContext);
-  console.log(cartCount);
+  console.log(isAuth);
   return (
     <>
       <Flex
@@ -144,7 +139,7 @@ const DesktopNav = () => {
             fontSize={"0.8rem"}
           >
             <Link
-              href="#"
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -161,7 +156,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href={"#"}
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -170,7 +165,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -179,7 +174,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -215,15 +210,27 @@ const DesktopNav = () => {
                         Logout
                       </Button>
                     ) : (
-                      <Link href="/login" fontSize={"1rem"}>
-                        Login
+                      <Link to="/login">
+                        <Text
+                          fontSize={"1.0rem"}
+                          _hover={{ textDecoration: "underline" }}
+                          fontWeight={"500"}
+                        >
+                          Login
+                        </Text>
                       </Link>
                     )}
                     <Box>
                       <Signup />
                     </Box>
-                    <Link href="/admin" fontSize={"1rem"}>
-                      Admin Panel
+                    <Link to="/admin" fontSize={"1rem"}>
+                      <Text
+                        fontSize={"1.0rem"}
+                        _hover={{ textDecoration: "underline" }}
+                        fontWeight={"500"}
+                      >
+                        Admin Panel
+                      </Text>
                     </Link>
                   </Stack>
                 </PopoverContent>
@@ -232,7 +239,7 @@ const DesktopNav = () => {
             <Divider orientation="vertical" border={"1px solid black"} />
 
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -241,7 +248,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -250,7 +257,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -259,7 +266,7 @@ const DesktopNav = () => {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="/cart"
+              to="/cart"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -308,15 +315,15 @@ const MobileTopNav = () => {
   );
 };
 
-const MobileTopNavItem = ({ label, children, href }) => {
+const MobileTopNavItem = ({ label, children }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
     <Stack spacing={4} onClick={children && onToggle}>
       <Flex
         py={1}
-        as={Link}
-        href={href ?? "#"}
+        // as={Link}
+        // to={to ?? "#"}
         justify={"space-between"}
         align={"center"}
         _hover={{
@@ -351,7 +358,7 @@ const MobileTopNavItem = ({ label, children, href }) => {
         >
           {children &&
             children.map((child) => (
-              <Link key={child.label} py={2} href={child.href}>
+              <Link key={child.label} py={2} to={child.to}>
                 {child.label}
               </Link>
             ))}
@@ -367,12 +374,15 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Delhi",
+        to: "#",
       },
       {
         label: "Mumbai",
+        to: "#",
       },
       {
         label: "Chennai",
+        to: "#",
       },
     ],
   },
@@ -381,32 +391,32 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Login",
-        href: "/login",
+        to: "/login",
       },
       {
         label: "Register",
-        href: "/signup",
+        to: "/signup",
       },
       {
         label: "Admin Panel",
-        href: "/admin",
+        to: "/admin",
       },
     ],
   },
   {
     label: "Track Order",
-    href: "#",
+    to: "#",
   },
   {
     label: "Support",
-    href: "#",
+    to: "#",
   },
   {
     label: "Stores",
-    href: "#",
+    to: "#",
   },
   {
     label: "Cart",
-    href: "/cart",
+    to: "/cart",
   },
 ];

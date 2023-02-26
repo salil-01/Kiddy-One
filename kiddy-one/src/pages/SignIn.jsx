@@ -67,7 +67,7 @@ export default function SignIn() {
   }
 
   //handling submit event
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(email,password)
     setIsLoading(true);
@@ -76,6 +76,7 @@ export default function SignIn() {
       .then((data) => {
         if (validateData(data, state)) {
           login();
+          // console.log(isAuth)
           dispatch({ type: "reset" });
           toast({
             position: "top",
