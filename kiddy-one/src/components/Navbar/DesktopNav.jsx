@@ -1,6 +1,5 @@
 import {
   Box,
-  Link,
   Popover,
   PopoverTrigger,
   PopoverContent,
@@ -8,7 +7,7 @@ import {
   Flex,
   Center,
 } from "@chakra-ui/react";
-
+import { Link } from "react-router-dom";
 import DeskNavItem from "./DeskNavItem";
 import navSubMenuData from "./NavbarCategories";
 

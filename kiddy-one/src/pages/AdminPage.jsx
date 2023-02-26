@@ -26,6 +26,7 @@ const AdminPage = () => {
           //   border={"1px solid"}
           width={["55%", "55%", "60%", "75%"]}
           marginLeft={["50%", "45%", "20%"]}
+          bg={"rgb(239,238,241)"}
         >
           {showPage == "dashboard" ? <Dashboard /> : null}
           {showPage == "showprods" ? <AllProducts /> : null}

@@ -13,12 +13,14 @@ import {
   Center,
   Image,
   useToast,
+  HStack,
 } from "@chakra-ui/react";
 import { useContext, useState, useReducer } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { AuthContext } from "../context/AuthContext";
 import TopNavBar from "../components/Navbar/TopNavabr";
+import Signup from "./SignUp";
 
 const initialState = {
   email: "",
@@ -230,16 +232,20 @@ export default function SignIn() {
                   </Button>
                 )}
               </Stack>
-              <Stack pt={6}>
-                <Text align={"center"}>
-                  New to Kiddy-Shop?{" "}
-                  <Link to="/signup">
-                    <Text textDecoration={"underline"} fontWeight={"700"}>
-                      Register Here
-                    </Text>
-                  </Link>
+
+              <HStack spacing={["0", "0", "-1", "-3", "-3"]} pt={"4"}>
+                <Text
+                  as={"span"}
+                  align={"center"}
+                  marginLeft={["10px", "10px", "11px", "15px", "50px"]}
+                >
+                  New to Kiddy-Shop?
                 </Text>
-              </Stack>
+                <Box>
+                  {" "}
+                  <Signup />
+                </Box>
+              </HStack>
             </Stack>
           </Box>
         </Stack>

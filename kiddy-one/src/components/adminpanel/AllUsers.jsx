@@ -11,6 +11,7 @@ import {
   TableContainer,
   Button,
   Spinner,
+  Box,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect } from "react";
@@ -52,49 +53,50 @@ const AllUsers = () => {
   };
 
   return (
-    <TableContainer
-      margin="auto"
-      border={"1px solid red"}
-      //   mt={100}
-      //   mr={["30px"]}
-    >
-      <Table>
-        <Thead>
-          <Tr>
-            <Th>S.No</Th>
-            <Th>Name</Th>
-            <Th>Email</Th>
-            <Th>Mobile</Th>
-            <Th>Delete</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {loading ? (
-            <Spinner marginLeft={"30vw"} size={"xl"} />
-          ) : (
-            data?.map((element) => (
-              <Tr>
-                <Td>{element.id}</Td>
-                <Td>{element.name}</Td>
-                <Td>{element.email}</Td>
-                <Td>{element.mobile}</Td>
-                <Td>
-                  <Button
-                    onClick={() => handleDelete(element.id)}
-                    bgColor={"red.500"}
-                    _hover={{ bgColor: "red.400" }}
-                    color={"whiteAlpha.900"}
-                    w="60px"
-                  >
-                    Delete
-                  </Button>
-                </Td>
-              </Tr>
-            ))
-          )}
-        </Tbody>
-      </Table>
-    </TableContainer>
+    <Box>
+      <TableContainer
+        margin="auto"
+        mt={"60px"}
+        //   mr={["30px"]}
+      >
+        <Table variant="striped" colorScheme="gray">
+          <Thead>
+            <Tr>
+              <Th>S.No</Th>
+              <Th>Name</Th>
+              <Th>Email</Th>
+              <Th>Mobile</Th>
+              <Th>Delete</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {loading ? (
+              <Spinner marginLeft={"30vw"} size={"xl"} />
+            ) : (
+              data?.map((element) => (
+                <Tr>
+                  <Td>{element.id}</Td>
+                  <Td>{element.name}</Td>
+                  <Td>{element.email}</Td>
+                  <Td>{element.mobile}</Td>
+                  <Td>
+                    <Button
+                      onClick={() => handleDelete(element.id)}
+                      bgColor={"red.500"}
+                      _hover={{ bgColor: "red.400" }}
+                      color={"whiteAlpha.900"}
+                      w="70px"
+                    >
+                      Delete
+                    </Button>
+                  </Td>
+                </Tr>
+              ))
+            )}
+          </Tbody>
+        </Table>
+      </TableContainer>
+    </Box>
   );
 };
 
