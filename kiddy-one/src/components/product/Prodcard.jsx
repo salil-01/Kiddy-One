@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import {
-  Box,
-  Heading,
-  Divider,
-  Image,
-  Text,
-  Button,
-  GridItem,
-  useToast,
-} from "@chakra-ui/react";
+import { Box, Image, Text, Button, GridItem, useToast } from "@chakra-ui/react";
 import axios from "axios";
+import { AuthContext } from "../../context/AuthContext";
 
 const ProdCard = ({ product }) => {
   const [flag, setflag] = useState(false);
+  const { cartCount, setCartCount } = useContext(AuthContext);
   const toast = useToast();
   const handleClick = (id) => {
     setflag(true);
@@ -23,9 +16,11 @@ const ProdCard = ({ product }) => {
       .then((res) => {
         res = res.data;
         res = { ...res, quantity: 1 };
-        console.log(res);
+        // console.log(res);
         let LSdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+        console.log("cartlen", LSdata);
         localStorage.setItem("cartdata", JSON.stringify([...LSdata, res]));
+        setCartCount(cartCount + 1);
         toast({
           position: "top",
           title: `Item added Successfully`,

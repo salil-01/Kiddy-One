@@ -18,6 +18,7 @@ import { useContext, useState, useReducer } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { AuthContext } from "../context/AuthContext";
+import TopNavBar from "../components/Navbar/TopNavabr";
 
 const initialState = {
   email: "",
@@ -66,7 +67,7 @@ export default function SignIn() {
   }
 
   //handling submit event
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // console.log(email,password)
     setIsLoading(true);
@@ -75,6 +76,7 @@ export default function SignIn() {
       .then((data) => {
         if (validateData(data, state)) {
           login();
+          // console.log(isAuth)
           dispatch({ type: "reset" });
           toast({
             position: "top",
@@ -118,11 +120,13 @@ export default function SignIn() {
   };
   return (
     <>
+      <TopNavBar />
       <Flex
-        minH={"100vh"}
+        // height={"80vh"}
         align={"center"}
         justify={"center"}
         bg={"rgb(239,238,241)"}
+
         // border={"1px solid"}
       >
         <Stack
@@ -134,6 +138,7 @@ export default function SignIn() {
           boxShadow={"2xl"}
           bg={"white"}
           borderRadius={"8px"}
+          marginTop={"20px"}
         >
           <Image
             cursor={"pointer"}

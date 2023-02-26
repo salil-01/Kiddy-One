@@ -19,6 +19,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Pagination from "./Pagination";
 import ProdCard from "./Prodcard";
+import axios from "axios";
 
 const getData = (url) => {
   return fetch(url).then((res) => res.json());
@@ -34,6 +35,8 @@ const ProdTop = () => {
   const [error, setError] = useState(false);
   const [data, setData] = useState([]);
   const [order, setOrder] = useState("");
+  const [category, setCategory] = useState(null);
+  console.log(category);
   const sort = "price";
   // console.log(order);
   // const isAuth = true;
@@ -64,9 +67,23 @@ const ProdTop = () => {
 
   //using useeffect
   useEffect(() => {
-    // console.log("useeffect", order);
-    fetchAndUpdateData(page, sort, order);
-  }, [page, sort, order]);
+    // // console.log("useeffect", order);
+    //
+    if (category) {
+      axios(
+        `https://firstcry-mockserver.onrender.com/products?_page=${page}&_limit=15&_gender=${category}`
+      )
+        .then((res) => {
+          setData(res.data);
+          console.log("filterdata",res.data);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      fetchAndUpdateData(page, sort, order);
+    }
+  }, [page, sort, order, category]);
 
   //using useeffect for searchParam
   useEffect(() => {
@@ -111,24 +128,25 @@ const ProdTop = () => {
           </Select>
         </Box>
         <Box>
-          <Select borderColor={"orange"}>
-            <option value="">Country Of Origin</option>
-            <option value="">All Countries</option>
-            <option value="">India</option>
+          <Select name="gender" borderColor={"orange"} onChange={(e) => setCategory(e.target.value)}>
+            <option value="">Gender</option>
+            <option value="Boy">Boy</option>
+            <option value="Girl">Girl</option>
+            <option value="Unisex">Unisex</option>
           </Select>
         </Box>
         <Box>
           <Select borderColor={"orange"}>
-            <option value="">Size</option>
-            <option value="">Small</option>
-            <option value="">Medium</option>
-            <option value="">Large</option>
+            <option value="">Brand</option>
+            <option value="">Angel & Rocket</option>
+            <option value="">Anthrilo</option>
+            <option value="">Honeyhap</option>
+            <option value="">Pine Kids</option>
           </Select>
         </Box>
         <Box>
           <Select
             name="sort"
-            id="sortButton"
             onChange={(e) => setOrder(e.target.value)}
             borderColor={"orange"}
           >
@@ -163,7 +181,6 @@ const ProdTop = () => {
           justifyContent={"space-between"}
           //   border="1px"
           borderColor="gray.200"
-          // border={"1px solid"}
           padding={"10px"}
           overflow={{
             base: "none",
@@ -179,9 +196,11 @@ const ProdTop = () => {
           </Text>
           <CheckboxGroup colorScheme="orange">
             <Stack spacing={[1, 2]} direction={["column", "rocolumnw"]}>
-              <Text textAlign={"left"}>Gender</Text>
-              <Checkbox value="male">Boys</Checkbox>
-              <Checkbox value="female">Girls</Checkbox>
+              <Text textAlign={"left"}>Country Of Origin</Text>
+              <Checkbox name="russia">Russia</Checkbox>
+              <Checkbox name="japan">Japan</Checkbox>
+              <Checkbox name="india">India</Checkbox>
+              <Checkbox name="china">China</Checkbox>
             </Stack>
           </CheckboxGroup>
           <CheckboxGroup colorScheme="orange">
@@ -196,13 +215,10 @@ const ProdTop = () => {
           </CheckboxGroup>
           <CheckboxGroup colorScheme="orange">
             <Stack spacing={[1, 2]} direction={["column", "rocolumnw"]}>
-              <Text textAlign={"left"}>Brands</Text>
-              <Checkbox value="angel">Angel & Rocket</Checkbox>
-              <Checkbox value="anthrilo">Anthrilo</Checkbox>
-              <Checkbox value="honeyhap">Honeyhap</Checkbox>
-              <Checkbox value="pine">Pine Kids</Checkbox>
-              <Checkbox value="kookie">Kookie Kids</Checkbox>
-              <Checkbox value="rikidoos">Rikidoos</Checkbox>
+              <Text textAlign={"left"}>Size</Text>
+              <Checkbox value="small">Small</Checkbox>
+              <Checkbox value="medium">Medium</Checkbox>
+              <Checkbox value="large">Large</Checkbox>
             </Stack>
           </CheckboxGroup>
           <CheckboxGroup colorScheme="orange">

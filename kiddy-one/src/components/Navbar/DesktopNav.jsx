@@ -29,7 +29,7 @@ const DesktopNav = () => {
           _hover={{
             cursor: "pointer",
             bg: "white",
-            borderRadius:"3px"
+            borderRadius: "3px",
           }}
           width={"100%"}
         >
@@ -50,11 +50,13 @@ const DesktopNav = () => {
             </PopoverTrigger>
 
             {navItem.children && (
-              <PopoverContent width={"60vw"} backgroundColor={"white"}
-              boxShadow="dark-lg"
+              <PopoverContent
+                width={"60vw"}
+                backgroundColor={"white"}
+                boxShadow="md"
               >
                 <Grid
-                p={"15px"}
+                  p={"15px"}
                   templateColumns={"repeat(5,1fr)"}
                   autoRows={"35px"}
                   textTransform={"uppercase"}

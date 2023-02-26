@@ -3,62 +3,134 @@ import {
   Flex,
   Image,
   Input,
-  HStack,
   Text,
-  Center,
   Spacer,
   Icon,
   Divider,
-  Link,
   Popover,
   PopoverContent,
   PopoverTrigger,
   Stack,
   Button,
-  VStack,
+  IconButton,
+  Collapse,
+  useColorModeValue,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { useContext } from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {
+  HamburgerIcon,
+  CloseIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 
 import { BsSearch, BsCart2 } from "react-icons/bs";
 import { GoLocation } from "react-icons/go";
 import { AuthContext } from "../../context/AuthContext";
+import Signup from "../../pages/SignUp";
 const cartData = JSON.parse(localStorage.getItem("cartdata")) || [];
 console.log("cart", cartData);
 function TopNavBar() {
-  //   let searchRef = useRef();
+  //   let searcto = useRef();
   const { isAuth, logout } = useContext(AuthContext);
+  const { isOpen, onToggle } = useDisclosure();
+  return (
+    <>
+      <Box>
+        <Flex
+          // flex={{ base: 1, md: "auto" }}
+          // ml={{ base: -2 }}
+          // border={"1px solid"}
+          width={"98%"}
+          //  gap={15}
+          margin={"auto"}
+          justifyContent={"space-between"}
+          alignItems={"center"}
+        >
+          <Box display={{ base: "flex", md: "none" }}>
+            <IconButton
+              border={"1px solid orange"}
+              width={"10%"}
+              // marginLeft={"-12"}
+              // border={"1px solid"}
+
+              onClick={onToggle}
+              icon={
+                isOpen ? (
+                  <CloseIcon w={3} h={3} />
+                ) : (
+                  <HamburgerIcon w={5} h={5} />
+                )
+              }
+              variant={"ghost"}
+              aria-label={"Toggle Navigation"}
+            />
+          </Box>
+          <Flex
+            //  border={"1px solid"}
+            width={"90%"}
+            justifyContent={"space-around"}
+            margin={"auto"}
+            //  border={"1px solid"}
+          >
+            <Box
+              width={{ base: "70%", md: "40%" }}
+              // border={"1px solid"}
+            >
+              <Flex alignItems={"center"} gap={{ base: "6", md: "1" }}>
+                <Link to="/">
+                  <Image
+                    src="kiddy-one-logo.png"
+                    boxSize={"100%"}
+                    width={"68px"}
+                  ></Image>
+                </Link>
+                <Spacer />
+                <Input
+                  type={"text"}
+                  height={"30px"}
+                  width="70%"
+                  placeholder="Search for Category, Brand or Product"
+                  _placeholder={{ opacity: 1, color: "gray.500" }}
+                ></Input>
+                <Icon as={BsSearch} height={"20px"} width={"10%"} />
+              </Flex>
+            </Box>
+            <Box
+              width={"50%"}
+              // border="1px solid"
+              display={{ base: "none", md: "block" }}
+            >
+              <DesktopNav />
+            </Box>
+          </Flex>
+        </Flex>
+        <Collapse in={isOpen} animateOpacity>
+          <MobileTopNav />
+        </Collapse>
+        <Divider orientation="horizontal" border={"1px solid gray"} />
+      </Box>
+    </>
+  );
+}
+export default TopNavBar;
+
+const DesktopNav = () => {
+  const { isAuth, logout, cartCount } = useContext(AuthContext);
+  console.log(isAuth);
   return (
     <>
       <Flex
         height={"60px"}
-        width={"85%"}
+        width={"100%"}
         margin={"auto"}
         justifyContent={"space-between"}
         alignItems={"center"}
       >
-        <Box width={"35%"}>
-          <Flex alignItems={"center"} gap={"0"}>
-            <Link href="/">
-              <Image
-                src="kiddy-one-logo.png"
-                boxSize={"60px"}
-                width={"68px"}
-              ></Image>
-            </Link>
-            <Spacer />
-            <Input
-              type={"text"}
-              height={"30px"}
-              width="70%"
-              placeholder="Searc for Category Brand or Product"
-              _placeholder={{ opacity: 1, color: "gray.500" }}
-            ></Input>
-            <Icon as={BsSearch} height={"20px"} width={"10%"} />
-          </Flex>
-        </Box>
         <Spacer />
-        <Box width={"50%"}>
+        <Box width={"100%"}>
           <Flex
             justifyContent={"space-between"}
             alignItems={"center"}
@@ -67,7 +139,7 @@ function TopNavBar() {
             fontSize={"0.8rem"}
           >
             <Link
-              href="#"
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -84,7 +156,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href={"#"}
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -93,7 +165,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="/"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -102,7 +174,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -118,7 +190,7 @@ function TopNavBar() {
                 </PopoverTrigger>
                 <PopoverContent>
                   <Stack
-                    height={"100px"}
+                    height={"130px"}
                     spacing={2}
                     width={"100%"}
                     padding={"20px"}
@@ -138,12 +210,27 @@ function TopNavBar() {
                         Logout
                       </Button>
                     ) : (
-                      <Link href="/login" fontSize={"1rem"}>
-                        Login
+                      <Link to="/login">
+                        <Text
+                          fontSize={"1.0rem"}
+                          _hover={{ textDecoration: "underline" }}
+                          fontWeight={"500"}
+                        >
+                          Login
+                        </Text>
                       </Link>
                     )}
-                    <Link href="/signup" fontSize={"1rem"}>
-                      Register
+                    <Box>
+                      <Signup />
+                    </Box>
+                    <Link to="/admin" fontSize={"1rem"}>
+                      <Text
+                        fontSize={"1.0rem"}
+                        _hover={{ textDecoration: "underline" }}
+                        fontWeight={"500"}
+                      >
+                        Admin Panel
+                      </Text>
                     </Link>
                   </Stack>
                 </PopoverContent>
@@ -152,7 +239,7 @@ function TopNavBar() {
             <Divider orientation="vertical" border={"1px solid black"} />
 
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -161,7 +248,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -170,7 +257,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="#"
+              to="#"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -179,7 +266,7 @@ function TopNavBar() {
             </Link>
             <Divider orientation="vertical" border={"1px solid black"} />
             <Link
-              href="/cart"
+              to="/cart"
               textDecoration="none"
               _hover={{ textDecoration: "underline" }}
               color={"black"}
@@ -203,7 +290,7 @@ function TopNavBar() {
                   fontSize={"1.1rem"}
                   width={"30px"}
                 >
-                  {cartData.length === null ? "0" : cartData.length}
+                  {cartCount}
                 </Text>
               </Flex>
             </Link>
@@ -212,5 +299,124 @@ function TopNavBar() {
       </Flex>
     </>
   );
-}
-export default TopNavBar;
+};
+
+const MobileTopNav = () => {
+  return (
+    <Stack
+      bg={useColorModeValue("white", "gray.800")}
+      p={4}
+      display={{ md: "none" }}
+    >
+      {NAV_ITEMS.map((navItem) => (
+        <MobileTopNavItem key={navItem.label} {...navItem} />
+      ))}
+    </Stack>
+  );
+};
+
+const MobileTopNavItem = ({ label, children }) => {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <Flex
+        py={1}
+        // as={Link}
+        // to={to ?? "#"}
+        justify={"space-between"}
+        align={"center"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Text
+          fontWeight={600}
+          color={useColorModeValue("gray.600", "gray.200")}
+        >
+          {label}
+        </Text>
+        {children && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={"all .25s ease-in-out"}
+            transform={isOpen ? "rotate(180deg)" : ""}
+            w={6}
+            h={6}
+          />
+        )}
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={"solid"}
+          borderColor={useColorModeValue("gray.200", "gray.700")}
+          align={"start"}
+        >
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} to={child.to}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
+    </Stack>
+  );
+};
+
+const NAV_ITEMS = [
+  {
+    label: "Select Location",
+    children: [
+      {
+        label: "Delhi",
+        to: "#",
+      },
+      {
+        label: "Mumbai",
+        to: "#",
+      },
+      {
+        label: "Chennai",
+        to: "#",
+      },
+    ],
+  },
+  {
+    label: "Login/Register",
+    children: [
+      {
+        label: "Login",
+        to: "/login",
+      },
+      {
+        label: "Register",
+        to: "/signup",
+      },
+      {
+        label: "Admin Panel",
+        to: "/admin",
+      },
+    ],
+  },
+  {
+    label: "Track Order",
+    to: "#",
+  },
+  {
+    label: "Support",
+    to: "#",
+  },
+  {
+    label: "Stores",
+    to: "#",
+  },
+  {
+    label: "Cart",
+    to: "/cart",
+  },
+];
