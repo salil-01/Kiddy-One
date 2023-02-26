@@ -1,4 +1,4 @@
-import { FormControl, FormLabel, Input, Box } from "@chakra-ui/react";
+import { FormControl, FormLabel, Input, Box, Heading, Spacer } from "@chakra-ui/react";
 import { useReducer, useRef } from "react";
 const initialState = {
   image: "",
@@ -98,7 +98,8 @@ const AddProduct = () => {
   };
   return (
     <>
-      <Box padding={10} width={"40vw"} margin={"auto"}>
+      <Box padding={10} width={"40vw"} margin={"auto"} mt="60px" bg="white" borderRadius={"5px"} boxShadow={"2xl"}>
+        <Heading as={"h3"} textAlign={"center"} fontSize={"1.0rem"} mb={"40px"}>Please Enter Product Details to Add a New Product</Heading>
         <form onSubmit={handleSubmit}>
           <FormControl>
             <FormLabel>Product Title</FormLabel>

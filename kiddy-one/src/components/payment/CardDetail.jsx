@@ -203,6 +203,13 @@ const CardDetail = () => {
                             <Button
                               onClick={handleSubmit}
                               border={"1px solid orange"}
+                              isDisabled={
+                                cardNumber == "" ||
+                                cardname == "" ||
+                                month == "" ||
+                                year == "" ||
+                                cvv == ""
+                              }
                             >
                               Place Order
                             </Button>

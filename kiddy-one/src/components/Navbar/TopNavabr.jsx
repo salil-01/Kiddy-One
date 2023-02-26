@@ -110,7 +110,7 @@ function TopNavBar() {
         <Collapse in={isOpen} animateOpacity>
           <MobileTopNav />
         </Collapse>
-        <Divider orientation="horizontal" border={"1px solid gray"} />
+        <Divider width={"99%"} margin={"auto"} orientation="horizontal" border={"1px solid gray"} />
       </Box>
     </>
   );

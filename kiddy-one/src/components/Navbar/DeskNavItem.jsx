@@ -1,16 +1,17 @@
-import { Box, Text, Link } from "@chakra-ui/react";
-
+import { Box, Text } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 const DeskNavItem = ({ label, href }) => {
   return (
-    <Link
-      href={href}
-      textDecoration="none"
-      _hover={{ fontWeight: "600" }}
-      fontSize={"0.8rem"}
-      color={"#757575"}
-    >
+    <Link to={href}>
       <Box>
-        <Text transition={"all .3s ease"} _groupHover={{ color: "yellow.400" }}>
+        <Text
+          transition={"all .1s ease"}
+          textDecoration="none"
+          _hover={{ fontWeight: "600" }}
+          fontSize={"0.8rem"}
+          color={"#757575"}
+          _groupHover={{ color: "yellow.400" }}
+        >
           {label}
         </Text>
       </Box>

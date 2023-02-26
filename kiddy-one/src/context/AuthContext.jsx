@@ -1,10 +1,10 @@
 import { createContext, useState } from "react";
 export const AuthContext = createContext();
-let cartData = JSON.parse(localStorage.getItem("cartdata"));
-
+let cartData = JSON.parse(localStorage.getItem("cartdata"))||[];
+const initialVal = (cartData.length||0)
 function AuthContextProvider({ children }) {
   const [isAuth, setisAuth] = useState(false);
-  const [cartCount, setCartCount] = useState(cartData.length);
+  const [cartCount, setCartCount] = useState(initialVal);
   const login = () => {
     setisAuth(true);
     // console.log(isAuth);
