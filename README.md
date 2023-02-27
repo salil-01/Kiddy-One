@@ -28,7 +28,7 @@ baby & kids products. Shop from the best range of Toys, Diapers, Clothes, Footwe
 
 * Checkout Page
 
-* Payment , Otp
+* Payment
 
 
 
