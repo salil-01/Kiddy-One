@@ -6,7 +6,7 @@ baby & kids products. Shop from the best range of Toys, Diapers, Clothes, Footwe
 ### Project Done in Time Span of 5 Days
 
 ### 💻Unique Project Name & logo :- Kids One
-![kiddy-one-logo width="100px"](https://user-images.githubusercontent.com/115460357/221510328-744fa7ea-52f9-487c-88c6-cd9081c89807.png)
+![kiddy-one-logo](https://user-images.githubusercontent.com/115460357/221510328-744fa7ea-52f9-487c-88c6-cd9081c89807.png){:height="100px" width="100px"}.
 
 ### 💫Tech-Stack-> 
 * For Frontend : HTML5, CSS3, Javascript, ES6, ReactJS Redux. 
