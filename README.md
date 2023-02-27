@@ -3,6 +3,7 @@
 KiddyOne.com - India's Largest Online Store for newborn, 
 baby & kids products. Shop from the best range of Toys, Diapers, Clothes, Footwear, Strollers, ...
 
+### Live Demo :- https://superb-madeleine-bc6e6f.netlify.app/
 ### Project Done in Time Span of 5 Days
 
 ### 💻Unique Project Name & logo :- Kids One
