@@ -13,39 +13,44 @@ import { Link } from "react-router-dom";
 import CartCard from "../components/cart/CartCard";
 import TopNavBar from "../components/Navbar/TopNavabr";
 import { AuthContext } from "../context/AuthContext";
+let cartdata = JSON.parse(localStorage.getItem("cartdata")) || [];
 const Cart = () => {
-  const { cartCount, setCartCount } = useContext(AuthContext);
+  const { cartCount, setCartCount,cartData,setcartData } = useContext(AuthContext);
+  
+  console.log("cartdata",cartData)
   const [price, setprice] = useState(0);
   const handlequantity = (value, id) => {
-    const updatedData = cartdata.map((item) =>
+    const updatedData = cartData.map((item) =>
       item.id === id ? { ...item, quantity: item.quantity + value } : item
     );
+    setcartData(updatedData);
     localStorage.setItem("cartdata", JSON.stringify(updatedData));
-    window.location.reload();
+    // window.location.reload();
   };
-  let cartdata = JSON.parse(localStorage.getItem("cartdata")) || [];
+  
   useEffect(() => {
     let tempprice =
-      cartdata.length > 0 &&
-      cartdata.reduce((acc, item) => {
+    cartData.length > 0 &&
+    cartData.reduce((acc, item) => {
         return (acc += item.quantity * Number(item.price));
       }, 0);
     setprice(tempprice);
-  }, [cartdata, handlequantity]);
-  console.log("price", price);
+  }, [cartdata, handlequantity,cartData]);
+  // console.log("price", price);
   const removeitem = (id) => {
-    const updatedData = cartdata.filter((el) => {
+    const updatedData = cartData.filter((el) => {
       return el.id !== id;
     });
+    setcartData(updatedData)
     localStorage.setItem("cartdata", JSON.stringify(updatedData));
     setCartCount(updatedData.length);
-    window.location.reload();
+    // window.location.reload();
   };
   return (
     <>
       <TopNavBar />
       <Box backgroundColor="rgb(250,250,250)">
-        {cartdata && cartdata.length == 0 ? (
+        {cartData && cartData.length == 0 ? (
           <Flex flexDirection={"column"} marginTop={"150px"} height={"100vh"}>
             <Heading as="h4">Uh hooo.</Heading>
             <Heading as={"h4"} marginBottom={"20px"}>
@@ -95,9 +100,9 @@ const Cart = () => {
               gap={"20px"}
               // border={"1px solid"}
             >
-              {cartdata &&
-                cartdata.length > 0 &&
-                cartdata.map((el) => (
+              {cartData &&
+                cartData.length > 0 &&
+                cartData.map((el) => (
                   <CartCard
                     removeitem={removeitem}
                     handlequantity={handlequantity}

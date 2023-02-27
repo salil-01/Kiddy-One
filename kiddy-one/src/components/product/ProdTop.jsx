@@ -75,7 +75,7 @@ const ProdTop = () => {
       )
         .then((res) => {
           setData(res.data);
-          console.log("filterdata",res.data);
+          console.log("filterdata", res.data);
         })
         .catch((error) => {
           console.log(error);
@@ -128,7 +128,11 @@ const ProdTop = () => {
           </Select>
         </Box>
         <Box>
-          <Select name="gender" borderColor={"orange"} onChange={(e) => setCategory(e.target.value)}>
+          <Select
+            name="gender"
+            borderColor={"orange"}
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option value="">Gender</option>
             <option value="Boy">Boy</option>
             <option value="Girl">Girl</option>
@@ -239,6 +243,7 @@ const ProdTop = () => {
           overflow={"scroll"}
           height={"100vh"}
           overflowX="hidden"
+
           // overflowY="hidden"
         >
           {/* <ProductList /> */}
@@ -258,6 +263,7 @@ const ProdTop = () => {
                 gap={"10"}
                 padding={"20px"}
                 // border={"1px solid"}
+                bg={"rgb(239,238,241)"}
               >
                 {data?.map((element) => (
                   <ProdCard key={element.id} product={element} />
