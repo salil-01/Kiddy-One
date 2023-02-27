@@ -12,3 +12,23 @@ baby & kids products. Shop from the best range of Toys, Diapers, Clothes, Footwe
 * For Frontend : HTML5, CSS3, Javascript, ES6, ReactJS Redux. 
 * For BackEnd: Json Server(Render). 
 * For Styling :- BootStrap , Chakra UI (UI Styling Library)
+
+### Features ✨
+* HomePage , Carousal , Navbar, Footer
+
+* Sign Up
+ 
+* Login
+
+* Admin Authentication & Dashboard
+
+* Product Gallery
+
+* Cart Page
+
+* Checkout Page
+
+* Payment , Otp
+
+
+
