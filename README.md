@@ -70,4 +70,5 @@ baby & kids products. Shop from the best range of Toys, Diapers, Clothes, Footwe
 
 ## Payment
 ![payment](https://user-images.githubusercontent.com/115460357/221512839-c4305749-3d0f-460d-aa80-a4ccc11ef6ff.png)
-
+ 
+ ### Thankyou For Visiting 🙂
