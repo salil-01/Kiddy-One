@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const ProdCard = ({ product }) => {
   const [flag, setflag] = useState(false);
-  const { cartCount, setCartCount } = useContext(AuthContext);
+  const { cartCount, setCartCount,setcartData } = useContext(AuthContext);
   const toast = useToast();
   const handleClick = (id) => {
     setflag(true);
@@ -19,6 +19,7 @@ const ProdCard = ({ product }) => {
         // console.log(res);
         let LSdata = JSON.parse(localStorage.getItem("cartdata")) || [];
         console.log("cartlen", LSdata);
+        setcartData([...LSdata, res])
         localStorage.setItem("cartdata", JSON.stringify([...LSdata, res]));
         setCartCount(cartCount + 1);
         toast({
@@ -38,6 +39,7 @@ const ProdCard = ({ product }) => {
         boxShadow: "2xl",
         borderColor: "#433333",
       }}
+      bg="white"
     >
       <Box marginBottom={"15px"}>
         <Link to={`/singleproduct/${product.id}`}>

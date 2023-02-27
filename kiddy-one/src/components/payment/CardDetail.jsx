@@ -23,15 +23,18 @@ import {
   Image,
   useToast,
 } from "@chakra-ui/react";
-// import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState,useContext } from "react";
 import { useRef } from "react";
+import { AuthContext } from "../../context/AuthContext";
+let cartdata = JSON.parse(localStorage.getItem("cartdata")) || [];
 // import { GoCreditCard } from "react-icons/go";
 // import { useNavigate, Link } from "react-router-dom";
 
 const CardDetail = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef();
+  const {cartCount,setCartCount,setcartData} = useContext(AuthContext)
   const [cardNumber, setCardnumber] = useState("");
   const [cardname, setCardname] = useState("");
   const [month, setMonth] = useState("");
@@ -43,17 +46,32 @@ const CardDetail = () => {
   const [password, setPassword] = useState("");
   const [register2, setRegister2] = useState("");
   const [password2, setPassword2] = useState("");
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const toast = useToast();
   // const navigate = useNavigate();
 
   const handleSubmit = () => {
     toast({
-      title: "Order Placed Successfully ✔️",
+      position: "top",
+      title: "Processing Your Order...",
       status: "success",
-      duration: 9000,
+      duration: 3000,
       isClosable: true,
     });
+    setTimeout(() => {
+      toast({
+        position: "top",
+        title: "Order Placed Successfully ✔️",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
+      setCartCount(0);
+      setcartData([]);
+      let updatedData = [];
+      localStorage.setItem("cartdata", JSON.stringify(updatedData));
+      navigate("/");
+    }, 3000);
   };
   return (
     <div>
@@ -63,6 +81,13 @@ const CardDetail = () => {
           border={"1px solid orange"}
           _hover={{ bg: "orange", color: "white" }}
           onClick={onOpen}
+          // isDisabled={
+          //   cardNumber == "" ||
+          //   cardname == "" ||
+          //   month == "" ||
+          //   year == "" ||
+          //   cvv == ""
+          // }
         >
           Payment ➡️
         </Button>

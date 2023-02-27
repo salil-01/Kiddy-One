@@ -1,4 +1,12 @@
-import { FormControl, FormLabel, Input, Box, Heading, Spacer } from "@chakra-ui/react";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Box,
+  Heading,
+  Spacer,
+  useToast,
+} from "@chakra-ui/react";
 import { useReducer, useRef } from "react";
 const initialState = {
   image: "",
@@ -77,6 +85,7 @@ const reducerFn = (state, action) => {
 };
 const AddProduct = () => {
   const initialRef = useRef(null);
+  const toast = useToast();
   const [state, dispatch] = useReducer(reducerFn, initialState);
   //   const handleChange = () => {};
   const handleSubmit = (e) => {
@@ -91,6 +100,12 @@ const AddProduct = () => {
     })
       .then((data) => {
         console.log(data);
+        toast({
+          position: "top",
+          title: `Product Added  Successfully`,
+          status: "success",
+          isClosable: true,
+        });
       })
       .catch((error) => {
         console.log(error);
@@ -98,8 +113,18 @@ const AddProduct = () => {
   };
   return (
     <>
-      <Box padding={10} width={"40vw"} margin={"auto"} mt="60px" bg="white" borderRadius={"5px"} boxShadow={"2xl"}>
-        <Heading as={"h3"} textAlign={"center"} fontSize={"1.0rem"} mb={"40px"}>Please Enter Product Details to Add a New Product</Heading>
+      <Box
+        padding={10}
+        width={"40vw"}
+        margin={"auto"}
+        mt="60px"
+        bg="white"
+        borderRadius={"5px"}
+        boxShadow={"2xl"}
+      >
+        <Heading as={"h3"} textAlign={"center"} fontSize={"1.0rem"} mb={"40px"}>
+          Please Enter Product Details to Add a New Product
+        </Heading>
         <form onSubmit={handleSubmit}>
           <FormControl>
             <FormLabel>Product Title</FormLabel>
@@ -174,7 +199,7 @@ const AddProduct = () => {
             <FormLabel>Description</FormLabel>
             <Input
               placeholder="Please Enter Description"
-              name="totimg"
+              name="description"
               onChange={(e) =>
                 dispatch({ type: "description", payload: e.target.value })
               }
@@ -204,7 +229,13 @@ const AddProduct = () => {
             />
           </FormControl>
           <FormControl>
-            <Input type={"submit"} value={"Add Product"} />
+            <Input
+              type={"submit"}
+              mt={"20px"}
+              border={"1px solid orange"}
+              _hover={{ bg: "orange", color: "white" }}
+              value={"Add Product"}
+            />
           </FormControl>
         </form>
       </Box>
